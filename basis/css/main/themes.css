@@ -1,0 +1,36 @@
+@charset 'utf-8';
+/*
+* Themes codes, font and filter
+* Author: LLLgoyour
+*
+* Licence: MIT
+*
+*/
+
+/* serif */
+
+/* theme modes below */
+
+/* dark mode */
+@import url("darkness.css");
+
+/* bit-gray mode */
+.html-filter-bitgray{
+    filter: sepia(75%);
+    -o-filter: sepia(75%);
+    -ms-filter: sepia(75%);
+    -moz-filter: sepia(75%);
+    -webkit-filter: sepia(75%);
+    filter:progid:DXImageTransform.Microsoft.BasicImage();
+
+}
+/* brown mode */
+.html-filter-brown{
+    filter: 
+}
+/* pink mode */
+
+/* sweet mode */
+
+
+
