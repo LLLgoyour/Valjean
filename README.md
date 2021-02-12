@@ -7,7 +7,7 @@
 4.在typecho后台中启用Valjean主题，即可开始施勇！
 
 （如果可以的话，一定要给个star哟~） ##关于使用时 此主题使用MIT许可证。
-##参考过的开源项目-感谢 ohmyga:Castle 作者Viosey, 继续开发者黎明余光:Material ##链接 作者博客 https://www.lllgoyour.club/
-主题文档 预计链接设定于https://valjean.lllgoyour.club/ 暂未开坑
+##参考过的开源项目-感谢 ohmyga:Castle 作者Viosey, 继续开发者黎明余光:Material ##链接 作者博客 https://www.lllgoyour.site/
+主题文档 预计链接设定于https://valjean.lllgoyour.site/ 暂未开坑
 
 ##感谢支持~ 完成项目后，喜欢的话可以前往我的博客扶贫哈~
