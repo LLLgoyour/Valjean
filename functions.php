@@ -1,11 +1,7 @@
 <?php
 /**
-<<<<<<< Updated upstream
  * Valjean Functions File.
- * Author: LLLgoyour. All rights reserved.
-=======
- * Valjean Functions Core
->>>>>>> Stashed changes
+ * @author LLLgoyour
  */
 
  if (!defined('__TYPECHO_ROOT_DIR')) exit;
@@ -36,10 +32,3 @@ function themeVersion() {
 
 //设置时区 set time zone 
 date_default_timezone_set("Asia_Shanghai");
-
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
-if (!defined('__TYPECHO'))
