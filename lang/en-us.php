@@ -81,11 +81,16 @@ $GLOBALS['archivesTitles'] = array(
 $GLOBALS['aboutPageTexts'] = array(
     "aboutShareGithub" => "GitHub",
 	"aboutShareQQ" => "QQ",
+<<<<<<< Updated upstream
 	"aboutShareBilibili" => "Bilibili",
 	"aboutShareEmail" => "E-mail"
 	"aboutShareTelegram" => "Telegram"
 	"aboutShareInstagram" => "Instagram"
 	“
+=======
+	"aboutShareB" => "Bilibili",
+	"aboutShareEmail" => "E-mail"
+>>>>>>> Stashed changes
 );
 
 $GLOBALS['sayingPageTexts'] = array(

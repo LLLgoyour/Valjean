@@ -1,9 +1,22 @@
 <?php
 /**
+<<<<<<< Updated upstream
  * Valjean Functions File.
  * Author: LLLgoyour. All rights reserved.
+=======
+ * Valjean Functions Core
+>>>>>>> Stashed changes
  */
-if (!defined('__TYPECHO_ROOT_DIR')) exit;
+
+ if (!defined('__TYPECHO_ROOT_DIR')) exit;
+
+//引用库文件 import library files
+require_once("lib/lib.php");
+require_once("lib/footer.php");
+require_once("lib/header.php");
+require_once("lib/language.php");
+require_once("lib/comments.php");
+)
 
 //引用所有所需文件 import all files needed
 require_once("themeConfig.php");
@@ -24,4 +37,9 @@ function themeVersion() {
 //设置时区 set time zone 
 date_default_timezone_set("Asia_Shanghai");
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 if (!defined('__TYPECHO'))
