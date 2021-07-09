@@ -97,6 +97,37 @@ class Valjean_Lib {
      */
     public static function getThemeName() {
         $db = Typecho_Db::get();
-        $query = $db->select('value')->from('table.options')->where('')
+        $query = $db->select('value')->from('table.options')->where('name = ?', 'theme');
+        $result = $db->fetchAll($query);
+        $themeName = $result[0]["value"];
+        return $themeName;
+    }
+
+    /**
+     * 获取主题版本 get theme versions
+     * @return string   返回主题版本号
+     */
+    public static function getThemeVersion() {
+        $info = Typecho_Plugin::parseInfo(__DIR__ . '/../../index.php');
+        return $info('version');
+    }
+
+    /**
+     * 检测主题是否为开发版
+     * check if the theme is a beta version
+     * @return boolean
+     */
+    public static function ifDev() {
+        return (Valjean_ENV == 'dev' || Valjean_ENV == 'development' ) ? true : false;
+    }
+
+    /**
+     * 根据UID获取用户名 get user name according to UID
+     * @return $name 返回指定用户的用户名
+     */
+    public static function getUserShownName( int $UID) {
+        $db = Typecho_Db::get();
+        $name = $db->fetchRow($db->select()->from('table.users')->where('uid = ?', $UID))['shownName'];
+        
     }
 }
