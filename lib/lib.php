@@ -2,7 +2,77 @@
 /**
  * Valjean Library File
  * @author LLLgoyour
- * All rights reserved.
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
+class Valjean_Lib {
+    /**
+     * 引用静态资源 import static resources
+     * 
+     * @param $path     文件路径
+     * @param $outType  链接输出方式
+     **/
+    
+    public static function resource($path, bool $version = false, bool $outType = false) {
+        //获取静态资源设置 get static resourse settings
+        $resourceSetting = Helper::options()->resource_Type;
+
+        //主题链接 theme link
+        $themeUrl = Helper::options()->themeUrl;
+
+        //附加版本号 version add-on
+        $version = ($version === true) ? '?v=' . Valjean_Version : NULL;
+
+        switch ($resourceSetting) {
+            case 'local':
+                local:
+                $output = $themeUrl . '/' . $path . $version;
+                break;
+                
+            case 'jsdelivr':
+                $output = 'https://cdn.jsdelivr.net/gh/LLLgoyour/Valjean@' . Valjean_Version . '/' . $path;
+                break;
+            
+            case 'cdn':
+                $output = Helper::options()->CDNlink . '/' . $path;
+                break;
+
+            default:
+                goto local;
+        }
+
+        //总输出 all of the output
+        if ($outType === true) {
+            echo $output;
+        } else {
+            return $output;
+        }
+    }
+
+    /**
+     * 随机封面图片 randomized cover
+     */
+    
+    public static function randomCover(bool $outType = false) {
+        $randomCvrSet = Helper::options()->coverType;
+
+        switch ($randomCvrSet) {
+            case 'local': 
+                //本地图片 local picture
+                $output = ''
+                break;
+            case 'external': 
+                //自定义第三方API [无随机参数] customized 3rd-party API [without randomized parameters]
+                $output = Helper::options()->coverEx;
+                break;
+
+            case 'externalRandom':
+                //自定义第三方API [有随机参数] customized 3rd-party API [with randomized parameters]
+                $output = Helper::options()->coverEx . '?rand=' . range_rand(0, 1000);
+                break;
+            
+            default:
+                goto default
+        }
+    }
+}
