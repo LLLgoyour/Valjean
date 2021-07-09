@@ -12,7 +12,6 @@ class Valjean_Lib {
      * @param $path     文件路径
      * @param $outType  链接输出方式
      **/
-    
     public static function resource($path, bool $version = false, bool $outType = false) {
         //获取静态资源设置 get static resourse settings
         $resourceSetting = Helper::options()->resource_Type;
@@ -52,13 +51,13 @@ class Valjean_Lib {
     /**
      * 随机封面图片 randomized cover
      */
-    
     public static function randomCover(bool $outType = false) {
         $randomCvrSet = Helper::options()->coverType;
 
         switch ($randomCvrSet) {
             case 'local': 
                 //本地图片 local picture
+                if (!$getFile)
                 $output = ''
                 break;
             case 'external': 
@@ -74,5 +73,30 @@ class Valjean_Lib {
             default:
                 goto default
         }
+    }
+    /** 
+     * 自适应伪静态 adapt pseudo-static
+     * 
+     * @param $path     路径
+     * @param $outType  链接输出方式
+    */
+    public static function index($path = '', $outType = false) {
+        $output = Helper::options()->index . $path;
+        
+        //最终输出 final output
+        if ($outType === true) {
+            echo $output;
+        } else {
+            return $output;
+        }
+    }
+
+    /**
+     * 获取主题名称 get theme name
+     * @return $themeName 返回主题名
+     */
+    public static function getThemeName() {
+        $db = Typecho_Db::get();
+        $query = $db->select('value')->from('table.options')->where('')
     }
 }
