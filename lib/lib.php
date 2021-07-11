@@ -128,6 +128,15 @@ class Valjean_Lib {
     public static function getUserShownName( int $UID) {
         $db = Typecho_Db::get();
         $name = $db->fetchRow($db->select()->from('table.users')->where('uid = ?', $UID))['shownName'];
-        
+        return $name;
+    }
+
+    /**
+     * 获取用户名
+     * @return $name 返回管理员的名称
+     */
+    public static function getAdminShownName() {
+        $db = Typecho_Db::get();
+        $name = $db->fetchRow($db->select()->from('table.'))
     }
 }
