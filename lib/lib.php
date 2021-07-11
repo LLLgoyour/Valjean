@@ -132,11 +132,21 @@ class Valjean_Lib {
     }
 
     /**
-     * 获取用户名
-     * @return $name 返回管理员的名称
+     * 根据UID获取用户名
+     * @return $name 返回指定用户名
      */
     public static function getAdminShownName() {
         $db = Typecho_Db::get();
-        $name = $db->fetchRow($db->select()->from('table.'))
+        $name = $db->fetchRow($db->select()->from('table.users')->where('uid = ?', $userID))['shownName'];
+        return $name;
+    }
+
+    /**
+     * 获取主管理员名称
+     * @return $name
+     */
+    public static function getAdminShownName() {
+        $db = Typecho_Db::get();
+        $name = $db->fetchRow($db->select()->from('table.users')->where('uid = ?', 1))['shownName'];
     }
 }
