@@ -152,6 +152,16 @@ class Valjean_Lib {
     }
 
     /**
+     * 获取用户邮箱（UID 1）
+     * @return $name 返回主管理员邮箱
+     */
+    public static function getAdminMail() {
+        $db = Typecho_Db::get();
+        $mail = $db->fetchRow($db->select->from('table.users')->where('uid = ?', 1))['mail'];
+        return $mail;
+    }
+
+    /**
      * 判断插件可用性（存在且激活）
      * @param $name 插件名
      * @return      插件状态
@@ -160,5 +170,31 @@ class Valjean_Lib {
         $plugin = Typecho_Plugin::export();
         $plugin = $plugin['acticated'];
         return is_array($plugin) && array_key_exists($name, $plugin);
+    }
+
+    /**
+     * 批量引用文件
+     * @param $path     目录
+     * @param $file     文件格式
+     */
+    public static function importFile($path, $file) {
+        $all = glob($path . '*' . $file);
+        foreach ($all as $file) {
+            require_once $file;
+        }
+    }
+
+    /**
+     * 获取主题设置 get theme settings
+     */
+    public static function getThemeSettings($name) {
+        statuc $themeSettings = NULL;
+        if ($themeSettings === NULL) {
+            $db = Typecho_Db::get();
+            $query = $db->select('value')->from('table.options')->where('name = ?', 'theme:' . self::getTheme());
+            $result = $db->fetchAll($query);
+            $themeSettings = unserialize($result[0]["value"]);
+        }
+        return ($name === NULL) ? $themeSettings : (isset($themeSettings[$name]) ? $themeSettings[$name] : NULL);
     }
 }
