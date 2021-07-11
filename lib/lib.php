@@ -142,11 +142,23 @@ class Valjean_Lib {
     }
 
     /**
-     * 获取主管理员名称
+     * 获取主管理员名称（UID 1）
      * @return $name
      */
     public static function getAdminShownName() {
         $db = Typecho_Db::get();
         $name = $db->fetchRow($db->select()->from('table.users')->where('uid = ?', 1))['shownName'];
+        return $name;
+    }
+
+    /**
+     * 判断插件可用性（存在且激活）
+     * @param $name 插件名
+     * @return      插件状态
+     */
+    public static function checkPlugin($name) {
+        $plugin = Typecho_Plugin::export();
+        $plugin = $plugin['acticated'];
+        return is_array($plugin) && array_key_exists($name, $plugin);
     }
 }
