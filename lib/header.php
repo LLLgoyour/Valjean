@@ -68,16 +68,70 @@ class Valjean_Header
             $valjeanThemeCss = '';
             $valjeanCss = '';
             //还有其他变量还没写
-            }
-            
-            //pureCSS 未导入
+        }
+
+        //pureCSS 未导入
         if ($header->is("index")) {
-            //如果在首页 if it's the homepage
+            //首页 homepage
             $type = 'website'; //站点类型 site type
             $description = Helper::options()->description; //站点简介 site description
-        }elseif ($header->is("post") || $header->is("page")) {
+        } elseif ($header->is("post") || $header->is("page")) {
             //如果在文章/独立页面
+            if ($header->fields->excerpt && $header->fields->excerpt != '') {
+                //如果自定义字段不为空 if the accustomed fields are not empty
+                $descrption = $header->$fields->excerpt;
+            } else {
+                $descrption = Typecho_Common::subStr(strip_tags($header->excerpt), 0, 100, "...");
+            }
+            $type = 'article'; //站点类型 site type
+        } else {
+            //如果无法判断 if it can't determine the type
+            $type = 'archive';
+            $description = Helper::options()->description;
         }
-        }
+
+        $coverSet = Helper::options()->cover;
+        //封面图片
+        if ($header->is("index")) {
+            $cover = (Helper::options()->siteAvatar) ? Helper::options()->siteAvatar : Valjean_Lib::resources(''); //图片未创建
+        } else if (!empty($coverSet)) {
+            $cover = $coverSet;
+        } else {
+            $cover = Valjean_lib::randomCover(false);
+        } 
+
+//头部信息未完成
+        echo '<meta name="description" content="' . $description . '" />' . "\n " .
+
+        //判断Valjean配套插件是否启用 determine if Valjean plugins are loaded
+        if (Valjean_Lib::hasPlugin('Valjean')) {
+            echo "\n " . '<link rel="stylesheet" href="' . Valjean_lib::resources($valjeanPlugin, true) .
         }
     }
+}
+
+/**
+ * 板块透明度 card transprarency
+ */
+public static function cardTransparency() {
+    $cardTransparency = Helper::options()->cardTransparency;
+    switch ($cardTransparency) {
+        case '0':
+            break;
+            
+        case '1':
+            return ' class="moe-card-transparent-10"';
+            break;
+
+        case '2':
+            return ' class="moe-card-transparnt-20";';
+            break;
+            //自创的类 暂时不用
+
+        case '3':
+            return ' class= card-transparent-30';
+
+        default:
+            break;
+    }
+}
