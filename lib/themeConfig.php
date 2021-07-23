@@ -15,7 +15,7 @@ function themeConfig($form) {
 }
 
 //语言 language
-$GLOBALS['valjeanLang'] = 'zh-cn';
+$GLOBALS['valjeanLang'] = 'zh-cn'; //可调整语言文件，根据语言包的文件名填写
 
 //字体 font
 //主题CDN字体 theme CDN font
