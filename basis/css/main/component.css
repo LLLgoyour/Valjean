@@ -36,4 +36,9 @@ button {
 }
 
 /* Alert */
-.
+.alert {
+    bottom: 0;
+    left: 50%;
+    position: relative;
+    transform: translate(-)
+}

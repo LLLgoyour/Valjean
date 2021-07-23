@@ -3,7 +3,6 @@
 * Themes codes, font and filter
 * Author: LLLgoyour
 *
-* Licence: MIT
 *
 */
 
@@ -12,7 +11,7 @@
 /* theme modes below */
 
 /* dark mode */
-@import url("darkness.css");
+@import url("basis/css/dark.css");
 
 /* bit-gray mode */
 .html-filter-bitgray{
