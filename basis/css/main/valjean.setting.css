@@ -1,0 +1,57 @@
+@charset 'utf-8';
+/**
+ *            _  _                  
+ * /\   /\__ | |(_) ___  __ _ _ __  
+ *\ \ / / _` | || |/ _ \/ _` | '_ \ 
+ * \ V / (_| | || |  __/ (_| | | | |
+ *  \_/ \__,_|_|/ |\___|\__,_|_| |_|
+ *            |__/                  
+ * Valjean Themes Stylesheet
+ * Author: LLLgoyour
+ * License: GPL V3
+ **/
+body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+    display: -webkit-box: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction:column;
+    -ms-flex-direction:column;
+}
+
+#lll-background {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%
+}
+
+#lll-background::after {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content:"";
+    z-index: -1;
+    position: fixed;
+    transition: all .233s ease-in;
+    background-color: rgba(233,233,233,.90);
+}
+
+.main {
+    flex: 1;
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+}
+
+.typecho-head-navigator{
+    transition: all .233s;
+    background-color: rgba(60,60,60,.5)
+}
