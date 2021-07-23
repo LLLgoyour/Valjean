@@ -1,0 +1,39 @@
+@charset 'utf-8';
+/*
+ * styles of some components
+ */
+/* Button */
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+.button {
+    border: 1px solid #233;
+    border-radius: 25px;
+    padding: 8px 12px;
+    transition: all .233s ease-out;
+}
+
+.button:hover {
+    border-color: #001;
+    background: #000;
+    color: #fff;
+}
+
+.button-sm {
+    padding: 3px 5px;
+}
+
+.button-md {
+    border: none;
+    border-radius: 3px'
+}
+
+.button-md:hover {
+    background: rgb(233, 233, 233);
+    color: #fff;
+}
+
+/* Alert */
+.

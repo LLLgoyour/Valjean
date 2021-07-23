@@ -1,5 +1,5 @@
 #scheme-Paradox .module-grid{
-
+    display: block !important;
 }
 
 #scheme-Paradox .valjean-layout .module-card{
@@ -17,5 +17,42 @@
     display: block;
 }
 
-#scheme-Paradox
-#
+#scheme-Paradox .index-top-block,
+#scheme-Paradox footer {
+    display: none !important
+}
+
+#scheme_Paradox .valjean-index {
+    padding-top: 80px !important;
+}
+
+#scheme-Paradox .valjean-layout .module-card__media {
+    height: 223px;
+}
+
+#scheme-Paradox .post_entry-content {
+    display: block !important;
+}
+
+#scheme-Paradox .valjean-layout .meta {
+    display: block !important
+}
+
+#scheme-Paradox .article-headline-p {
+    position: relative !important;
+    top: 140px;
+}
+
+#scheme-Paradox #author-avatar {
+    width: 44px;
+    height: 44px;
+    float: left;
+}
+
+.fabs {
+    width: 56px;
+}
+
+#uc_recommend_ad {
+    display: none !important;
+}
