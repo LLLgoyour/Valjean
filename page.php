@@ -15,3 +15,5 @@ if (@_SERVER['HTTP_X_PJAX'] == true) {
 Typecho_widget::widget('Widget_Security')->to($security);
 ?>
 <div class=""<!----还需要写类-->
+
+<?php $this->need('lib/footer.php'); ?>

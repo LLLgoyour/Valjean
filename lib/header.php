@@ -63,6 +63,7 @@ class Valjean_Header
         if (Valjean_Lib::isDev() === true) {
             $valjeanThemeCss = 'basis/css/main/valjean.theme.php';
             $valjeanCss = 'basis/css/main/valjean.css';
+            $valjeanSetting = 'basis/css/main/valjean.setting.css'
             //还有其他变量还没写
         } else {
             $valjeanThemeCss = '';
@@ -70,7 +71,7 @@ class Valjean_Header
             //还有其他变量还没写
         }
 
-        //pureCSS 未导入
+        //pureCSS 未导入 或者导入使用fluent编写的css
         if ($header->is("index")) {
             //首页 homepage
             $type = 'website'; //站点类型 site type
@@ -120,16 +121,16 @@ public static function cardTransparency() {
             break;
             
         case '1':
-            return ' class="moe-card-transparent-10"';
+            return ' class="lll-card-transparency-10"';
             break;
 
         case '2':
-            return ' class="moe-card-transparnt-20";';
+            return ' class="lll-card-transparnt-20";';
             break;
             //自创的类 暂时不用
 
         case '3':
-            return ' class= card-transparent-30';
+            return ' class= card-transparency-30';
 
         default:
             break;

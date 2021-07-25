@@ -11,8 +11,7 @@
  * @link        https://lllgoyour.tk
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-$this->need('lib/header.php');
-$this->need('lib/')
+$this->need('lib/header.php')
 
 if (@$_SERVER('HTTP_X_PJAX') == true) {
     header('HTTP/1.1 200 OK');
