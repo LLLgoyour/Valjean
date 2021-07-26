@@ -22,4 +22,6 @@ if($GLOBALS['valjeanIfCompressHTML']=='on'); //ob 截取开始 ?>
         <meta itemprop="image" content="<?php Utils::indexTheme('favicon.ico'); ?>" />
         <meta name="author" content="<?php $this->author(); ?>" />
         <meta name="description" content="<?php if($description != '') echo $description; else $this->excerpt(50); ?>" />
+
     </head>
+    <body class="<?php if($this->options->bodyFonts && $this->options->bodyFonts=1): ?>body-serif<?php endif; ?>"></body>
