@@ -24,6 +24,21 @@ if($GLOBALS['valjeanIfCompressHTML']=='on'); //ob 截取开始 ?>
         <meta name="description" content="<?php if($description != '') echo $description; else $this->excerpt(50); ?>" />
         <meta property="og:title" content="<?php Contents::title($this); ?>" />
         <meta property="og:description" content="<?php if($description != '') echo $description; else $this->excerpt(50); ?>" />
-        <meta property="og:site_name" content="<?php Helper::options()"
+        <meta property="og:site_name" content="<?php Helper::options()->title; ?>" />
+        <meta property="og:url" content="<?php Helper::options()->permalink(); ?>" />
+        <meta property="og:type" content="<?php if($this->is('post') || $this->is('page')) echo 'article'; else echo 'website'; ?>" />
+        <meta property="og:image" content="<?php echo $banner; ?>" />
+        <meta property="article:published_time" content="<?php echo date('c', $this->created); ?>" />
+        <meta property="article:modified_time" content="<?php echo date('c', $this->modified); ?>" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content=<?php Valjean_Contents::title($this); ?>" />
+        <meta name="twitter:description" content=<?php if($description != '') echo $description; else $this->excerpt(50); ?>" />
+        <meta name="twitter:image" content="<?php if($this->is('post') || $this->is('page')){$this->fields->banner();}
+        else {
+            if(empty($this->options->bannerUrl)):
+                echo Utils::indexTheme('favicon.ico');
+            else:
+                $this->options->bannerUrl();
+        endif;}?>" />
     </head>
     <body class="<?php if($this->options->bodyFonts && $this->options->bodyFonts=1): ?>body-serif<?php endif; ?>"></body>
