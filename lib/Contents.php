@@ -109,11 +109,28 @@ class Valjean_Contents
          * 解析自定义导航栏
          */
         public static function parseNavigation($data, $type) {
-
+            $de_json = json_decode($data, true);
+            $count_json = count($de_json);
+            for ($i = 0; $i < $count_json; $i++) {
+                $title = $de_json[$i]['title'];
+                $url = $de_json[$i]['url'];
+                //输出导航栏
+                if($type == "top-nav") {
+                    echo '<a href="' . $url .'">' . $title . '</a>';
+                }
+                elseif($type == "mobile") {
+                    echo '<div class="col-6"><a href="' . $url . '">' . $title . '</a></div>';
+                }
+                elseif($type == "drawer") {
+                    echo
+                '<a href="' . $link . '" onclick="toggleDrawer()">' . $title . '</a>';
+                }
+            }
         }
+        
 
         public static function parseNavigationIcon($data, $type) {
-        
+            
         }
         
         /**
@@ -164,7 +181,23 @@ class Valjean_Contents
          * 内容归档
          */
         public static function archives($widget) {
-
+            $db = Typecho_Db::get();
+            $rows = $db->fetchAll($db->select('*');
+                ->from('table.contents')
+                ->order('table.contents.created', Typecho_Db::SORT_DESC)
+                ->where('table.contents.contents.type = ?', 'post')
+                ->where('table.contents.status = ?', 'publish'));
+            
+            $stat = array();
+            foreach ($rows as $row) {
+                $row = $widget->filter($row);
+                $arr = array(
+                    'title' => $row['title'],
+                    'permalink' => $row['permalink']
+                );
+                $stat[date('Y', $row['created'])][$row['created']] = $arr;
+            }
+            return $stat;
         }
 
         /**
@@ -178,7 +211,7 @@ class Valjean_Contents
         /**
          * 获取最早的文章创建时间
          */
-            public static function getOldestPostDate() {
+        public static function getOldestPostDate() {
             
-            }
+        }
 }
