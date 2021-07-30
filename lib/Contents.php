@@ -70,7 +70,16 @@ class Valjean_Contents
          * 解析友链 parse Friend Links
          */
         public static function parseLink($text) {
-        
+            //解析友链盒子 parse friends links box
+            $registry = '/\[links\](.*?)\[\/links\]/s';
+            $replace = '<div class="links-box container-fluid"><div class="row">${1}</div></div>';
+            $text = preg_replace($registry, $replace, $text);
+            //解析友链个体 parse friends links
+            $registry = '/\[(.*?)\]\{(.*?)\}\((.*?)\)\+\((.*?)\)/s';
+            $replace = '<div class="links-box container-fluid"><div class="row">${}'
+            $text = preg_replace($registry, $replace, $text);
+            //解析外部友链
+            $registry = 
         }
 
         /**
@@ -84,7 +93,7 @@ class Valjean_Contents
          * 解析细节<details>
          */
         public static function parseDetail($text) {
-        
+            
         }
         
         /**
@@ -205,13 +214,13 @@ class Valjean_Contents
          * http://docs.qqdie.com/
          */
         public static function postView($archive) {
-        
+            
         }
 
         /**
          * 获取最早的文章创建时间
          */
         public static function getOldestPostDate() {
-            
+
         }
 }
