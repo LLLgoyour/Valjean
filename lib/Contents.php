@@ -86,7 +86,8 @@ class Valjean_Contents
          * 解析键盘按键 parse pressed keys
          */
         public static function parseKeyboard($text) {
-
+            $text = preg_replace('/\[\[(.*?)\]\]/s' , '<kbd>${1}</kbd>', $text);
+            return $text;
         }
 
         /**
