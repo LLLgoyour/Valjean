@@ -94,7 +94,7 @@ class Valjean_Contents
          * 解析细节<details>
          */
         public static function parseDetail($text) {
-            
+            $text = preg_replace('/\[details sum="(.*?)"\]/s')
         }
         
         /**
