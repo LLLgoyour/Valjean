@@ -15,13 +15,19 @@ Typecho_Widget::widget('Widget_Securtity')->to($security);
 ?>
 <div class=""
 
+<?php $this->need('lib/comments.php'); ?>
+
 //如果有密码有权限查看则显示导航栏
 if (!$this->hidden) { ?>
-    <div class=""}
+    <div class=""
+        <div class=
+}
 <?php
 if (@$_SERVER['HTTP_X_PJAX'] == true) {
     echo '</div>';
 } else {
     $this->need('lib/footer.php');
 }
+Typecho_Widget::widget('Widget_Securtity')->to($security);
 ?>
+
